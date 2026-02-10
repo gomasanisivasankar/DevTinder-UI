@@ -49,7 +49,7 @@ const Login = () => {
     <div className="flex justify-center my-10 ">
       <div className="card bg-base-300 w-96 shadow-sm">
         <div className="card-body">
-          <h2 className="card-title justify-center">{isLoginForm?"Login":"Singup"}</h2>
+          <h2 className="card-title justify-center">{isLoginForm?"Login":"Signup"}</h2>
           <div className="flex flex-col gap-4">
              {!isLoginForm &&<>
              <label className="form-control w-full max-w-xs ">
