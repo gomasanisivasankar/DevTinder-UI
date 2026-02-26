@@ -7,7 +7,7 @@ import { removeUserFromFeed } from '../utils/feedSlice';
 const UserCard = ({user}) => {
     const dispatch=useDispatch()
     if (!user) return null;
-    const {_id,firstName,lastName,age,gender,about,photoURL}=user;
+    const {_id,firstName,lastName,age,gender,about,photoURL,phoneNumber}=user;
     const handleSendRequest=async(status,userId)=>{
       try{
         const res=await axios.post(BASE_URL+"/request/send/"+status+"/"+userId,{},{withCredentials:true})
@@ -31,6 +31,7 @@ const UserCard = ({user}) => {
         <p>{age+ ", "+gender}</p>
     )}
     <p>{about}</p>
+    <p>{phoneNumber}</p>
     <div className="card-actions justify-center">
       <button className="btn btn-primary"
       onClick={()=>handleSendRequest("ignored",_id)}

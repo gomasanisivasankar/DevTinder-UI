@@ -12,6 +12,7 @@ const EditProfile = ({ user }) => {
   const [gender, setGender] = useState(user.gender|| "");
   const [age, setAge] = useState(user.age|| "");
   const [about, setAbout] = useState(user.about|| "");
+  const [phoneNumber,setPhoneNumber]=useState(user.phoneNumber|| "")
   const [error, setError] = useState("");
   const [showToast,setShowToast]=useState(false)
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const EditProfile = ({ user }) => {
     try {
       const res = await axios.patch(
         BASE_URL + "/profile/edit",
-        { firstName, lastName, age, photoURL, gender, about },
+        { firstName, lastName, age, photoURL, gender, about,phoneNumber },
         { withCredentials: true },
       );
       dispatch(addUser(res?.data?.data));
@@ -106,6 +107,17 @@ const EditProfile = ({ user }) => {
                     className="input input-bordered w-full max-w-xs"
                   />
                 </label>
+                <label className="form-control w-full max-w-xs ">
+                  <div className="label">
+                    <span className="label-text my-1">phoneNumber:</span>
+                  </div>
+                  <input
+                    type="text"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="input input-bordered w-full max-w-xs"
+                  />
+                </label>
               </div>
               <p className="text-red">{error}</p>
               <div className="card-actions justify-center m-4">
@@ -117,7 +129,7 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
         <UserCard
-          user={{ firstName, lastName, age, photoURL, gender, about }}
+          user={{ firstName, lastName, age, photoURL, gender, about ,phoneNumber}}
         />
       </div>
       
