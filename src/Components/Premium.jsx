@@ -8,14 +8,14 @@ const Premium = () => {
             membershipType: type,
         },{withCredentials:true})
 
-        const {order_id,amount,currency,notes,keyId}=order.data;
+        const {orderId,amount,currency,notes,keyId}=order.data;
         const options = {
         key: keyId, 
         amount, 
         currency,
         name: 'Dev Tinder',
         description: 'Connection to other developers',
-        order_id: order_id, 
+        order_id: orderId, 
         prefill: {
           name: notes.firstname+" "+notes.lastname,
           email: notes.emailId,
