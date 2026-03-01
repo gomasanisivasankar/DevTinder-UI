@@ -9,6 +9,7 @@ const Premium = () => {
         },{withCredentials:true})
 
         const {orderId,amount,currency,notes,keyId}=order.data;
+        console.log("Order ID sent to Razorpay:", orderId);
         const options = {
         key: keyId, 
         amount, 
