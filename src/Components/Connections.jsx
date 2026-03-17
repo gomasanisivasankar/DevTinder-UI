@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { BASE_URL } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addConnections } from '../utils/connectionSlice'
-
+import { Link } from 'react-router-dom'
 const Connections = () => {
   const connections=useSelector((store)=>store.connections)
   const dispatch=useDispatch()
@@ -39,7 +39,9 @@ const Connections = () => {
             <h1 className='font-bold text-xl'>{firstName +" "+ lastName}</h1>
             {age &&gender &&(<p>{age+", "+gender}</p>)}
             <p>{about}</p>
+           
             </div>
+             <Link to={"/chat/"+_id} className='btn btn-primary'>Chat</Link>
           </div>
         )
       })}

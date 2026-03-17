@@ -109,6 +109,13 @@ const Login = () => {
           <p className="m-auto cursor-pointer py-2" onClick={()=>setIsLoginForm((value)=>!value)}>
             {isLoginForm ?"New User? Signup Here":"Existing User? Login Here"}
           </p>
+          <button
+ onClick={()=>{
+  window.location.href="http://localhost:5000/auth/google"
+ }}
+>
+Login with Google
+</button>
         </div>
       </div>
     </div>
